@@ -1,0 +1,7 @@
+langgraph
+fastapi
+uvicorn
+langchain
+fastmcp
+langchain-mistralai
+python-dotenv
