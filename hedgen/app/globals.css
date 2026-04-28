@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── BASE ──────────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --bg-base: #040810;
+    --emerald-hedge: #00E87A;
+    --blue-accent: #2A7FFF;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background: #00E87A22;
+    color: #00E87A;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #040810;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #0C1829;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00E87A44;
+  }
+}
+
+/* ─── COMPONENTS ────────────────────────────────────────────────────────────── */
+@layer components {
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-sm
+           bg-emerald-hedge text-bg-base
+           transition-all duration-200
+           hover:scale-[1.02] hover:shadow-[0_0_32px_#00E87A44]
+           active:scale-[0.98];
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-sm
+           border border-border text-text-primary
+           transition-all duration-200
+           hover:border-border-active hover:bg-white/5
+           active:scale-[0.98];
+  }
+
+  /* Section label (small badge above headline) */
+  .section-label {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full
+           border border-border bg-bg-raised
+           font-mono text-xs text-text-secondary tracking-wider uppercase;
+  }
+
+  /* Thin divider line */
+  .divider {
+    @apply h-px w-full bg-border;
+  }
+
+  /* Glowing card */
+  .card {
+    @apply relative rounded-2xl border border-border bg-bg-surface p-6
+           transition-all duration-300
+           hover:border-border-active hover:bg-bg-raised;
+  }
+
+  /* Metric value */
+  .metric {
+    @apply font-display text-4xl font-bold text-text-primary;
+  }
+}
+
+/* ─── UTILITIES ─────────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Gradient text */
+  .text-gradient-green {
+    background: linear-gradient(135deg, #00E87A, #00A858);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-blue-green {
+    background: linear-gradient(135deg, #2A7FFF, #00E87A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Grid background texture */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Radial vignette */
+  .vignette {
+    background: radial-gradient(ellipse at center, transparent 40%, #040810 100%);
+  }
+
+  /* Glow shadows */
+  .glow-green {
+    box-shadow: 0 0 40px #00E87A22, 0 0 80px #00E87A11;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 40px #2A7FFF22, 0 0 80px #2A7FFF11;
+  }
+
+  /* Animation delays for stagger */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+
+  /* Initially hidden for fade-up animations */
+  .animate-fade-up { opacity: 0; }
+}

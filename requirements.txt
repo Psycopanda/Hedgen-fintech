@@ -5,3 +5,4 @@ langchain
 fastmcp
 langchain-mistralai
 python-dotenv
+langchain-community
